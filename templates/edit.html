@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "bootstrap/base.html" %}
+{% block content %}
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    Book Name: {{ book['title'] }}
+    <br><br>
+    Current Rating: {{ book['rating'] }}
+    <br><br>
+    <form action="" method="PUT">
+        <label>New Rating</label>
+        <input type="hidden"  name="id" value="{{book['id']}}">
+        <input type="text" name="rating">
+        <button type="submit">Change Rating</button>
+    </form>
+<!--    <br><br>-->
+<!--    {{ msg }}-->
+    <br><br>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <h4>{{message}}</h4>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <br><br>
+    <a href="{{url_for('home')}}"> Back to Home</a>
+</body>
+
+{% endblock %}
+</html>

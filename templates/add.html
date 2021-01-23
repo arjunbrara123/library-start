@@ -17,6 +17,10 @@
         <input type="text" name="rating">
         <button type="submit">Add Book</button>
     </form>
+    <br>
+    {{ msg }}
+    <br><br>
+    <a href="{{url_for('home')}}"> Back to Home</a>
 </body>
 {% endblock %}
 </html>
